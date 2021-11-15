@@ -1,7 +1,6 @@
 'use strict';
 require('dotenv').config({ path: './variables.env' });
 const connectToDatabase = require('./db');
-const Member = require('./models/Member');
 const Comment = require('./models/Comment');
 
 
@@ -33,10 +32,12 @@ module.exports.create = (event, context, callback) => {
 // Fetch comments based on organization
 module.exports.getComments = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
-
+  if( !event.pathParameters || event?.pathParameters?.orgName === null || event?.pathParameters?.orgName === ''){
+    Promise.reject(new Error('Please define organization'))
+}
   connectToDatabase()
     .then(() => {
-      Comment.find({deleted:false})
+      Comment.find({deleted:false, organization: event?.pathParameters?.orgName})
         .then(comment => callback(null, {
           statusCode: 200,
           body: JSON.stringify(comment)
@@ -46,25 +47,6 @@ module.exports.getComments = (event, context, callback) => {
           headers: { 'Content-Type': 'text/plain' },
           body: 'Could not fetch the Comments.'
         }));
-    });
-};
-
-// Fetch Members based on Organization
-module.exports.getMembers = (event, context, callback) => {
-  context.callbackWaitsForEmptyEventLoop = false;
-
-  connectToDatabase()
-    .then(() => {
-      Member.find()
-        .then(member => callback(null, {
-          statusCode: 200,
-          body: JSON.stringify(member)
-        }))
-        .catch(err => callback(null, {
-          statusCode: err.statusCode || 500,
-          headers: { 'Content-Type': 'text/plain' },
-          body: 'Could not fetch the members.'
-        }))
     });
 };
 
