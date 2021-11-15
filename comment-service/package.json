@@ -1,0 +1,27 @@
+{
+  "name": "Serverless",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackbloo/serverless.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackbloo/serverless/issues"
+  },
+  "homepage": "https://github.com/jackbloo/serverless#readme",
+  "devDependencies": {
+    "serverless-offline": "^8.2.0"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "mongoose": "^6.0.12"
+  }
+}
