@@ -23,13 +23,6 @@ functions:
           path: orgs/{orgName}/comments 
           method: get
           cors: true
-  getMembers:
-    handler: handler.getMembers 
-    events:
-     - http:
-         path: orgs/{orgName}/members
-         method: get
-         cors: true
   delete:
     handler: handler.delete
     events:
@@ -39,4 +32,5 @@ functions:
          cors: true
 
 plugins:
-- serverless-offline # adding the plugin to be able to run the offline emulation
+- serverless-offline # Plugin for offline-run
+- serverless-mocha-plugin # Plugin for testing
