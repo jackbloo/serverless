@@ -4,11 +4,14 @@
         npm install
 
 For Running
+
         sls offline start --skipCacheinvalidation
 
 For Testing
+
         sls invoke test
 or
+
         sls invoke test -t 30000
 
 if it tooks a long time to connect with MongoDB
