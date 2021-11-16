@@ -57,7 +57,7 @@ GET, POST, and DELETE
 
 GET
 
-## GET /dev/orgs/{orgName}/comments
+## GET /dev/orgs/{orgName}/members
 
         url: 'http://localhost:3000/dev/orgs/{orgName}/members,
         response status:
