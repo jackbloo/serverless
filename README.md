@@ -1,18 +1,20 @@
 # Serverless
 
 ## Installation
-
-`npm install`
+        npm install
 
 For Running
-`sls offline start --skipCacheinvalidation`
+
+        sls offline start --skipCacheinvalidation
 
 For Testing
-`sls invoke test`
-or
-`sls invoke test -t 30000`
 
-if it took a long time to connect with MongoDB
+        sls invoke test
+or
+
+        sls invoke test -t 30000
+
+if it tooks a long time to connect with MongoDB
 
 ## Routing
 
@@ -24,11 +26,17 @@ GET, POST, and DELETE
 
 ## POST /dev/orgs/{orgName}/comments
 
-        url: 'http://localhost:3000/dev/orgs/{orgName}/comments body: { comments: {type: string}, response status:{ success:{ statusCode: 200, comment:string }}
+        url: 'http://localhost:3000/dev/orgs/{orgName}/comments,
+        body: { comments: {type: string}, 
+        response status:
+        { success:
+        { statusCode: 200, comment:string }}
 
 ## GET /dev/orgs/{orgName}/comments
 
-        url: 'http://localhost:3000/dev/orgs/{orgName}/comments body: { comments: {type: string}, response status:{ success:{ statusCode: 200, body: [{
+        url: 'http://localhost:3000/dev/orgs/{orgName}/comments,
+        body: { comments: {type: string}, 
+        response status:{ success:{ statusCode: 200, body: [{
         comment:String,
         organization: String,
         deleted: {
@@ -40,13 +48,16 @@ GET, POST, and DELETE
 
 ## DELETE /dev/orgs/{orgName}/comments
 
-        url: 'http://localhost:3000/dev/orgs/{orgName}/comments, response status:{ success:{ statusCode: 200, body: Removed All Comments }}
+        url: 'http://localhost:3000/dev/orgs/{orgName}/comments, 
+        response status:
+        { success:
+        { statusCode: 200, body: Removed All Comments }}
 
 ## Member Routes
 
 GET
 
-## GET /dev/orgs/{orgName}/comments
+## GET /dev/orgs/{orgName}/members
 
         url: 'http://localhost:3000/dev/orgs/{orgName}/members,
         response status:
